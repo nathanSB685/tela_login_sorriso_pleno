@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sorriso Pleno Consultório Odontológico</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuração do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#007a3f',
+                            darkGreen: '#005e30',
+                            dark: '#333333'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body class="min-h-screen w-full flex items-center justify-center p-4">
+
+    <main class="w-full max-w-xl p-6 sm:p-8 my-auto">
+        
+        <!-- Header & Logo Ampliada -->
+        <div class="text-center mb-10">
+            <img 
+                src="assets/imgs/logo_sorriso_pleno.png" 
+                alt="Sorriso Pleno Consultório Odontológico" 
+                class="h-32 sm:h-40 w-auto mx-auto object-contain mb-6"
+            >
+            <h1 class="text-2xl sm:text-3xl font-bold text-[#333333] tracking-tight">Acesso ao Sistema Interno</h1>
+            <p class="text-sm text-gray-500 mt-2">Sorriso Pleno Consultório Odontológico</p>
+        </div>
+
+        <!-- Formulário de Login -->
+        <form id="loginForm" onsubmit="handleSubmit(event)" class="space-y-6">
+            
+            <!-- Alerta de Mensagem/Status -->
+            <div id="statusMessage" class="hidden p-4 rounded-xl text-sm font-semibold text-center transition-all"></div>
+
+            <!-- Campo Usuário / E-mail -->
+            <div>
+                <label for="username" class="block text-xs font-bold text-[#333333] uppercase tracking-wider mb-2">
+                    Usuário ou E-mail
+                </label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    required 
+                    placeholder="Digite seu usuário ou e-mail" 
+                    class="w-full px-4 py-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm text-[#333333] custom-input transition-all placeholder-gray-400"
+                >
+            </div>
+
+            <!-- Campo Senha -->
+            <div>
+                <label for="password" class="block text-xs font-bold text-[#333333] uppercase tracking-wider mb-2">
+                    Senha
+                </label>
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        placeholder="••••••••••••" 
+                        class="w-full pl-4 pr-12 py-3.5 bg-gray-50 border border-gray-300 rounded-xl text-sm text-[#333333] custom-input transition-all placeholder-gray-400"
+                    >
+                    <button 
+                        type="button" 
+                        onclick="togglePasswordVisibility()" 
+                        class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-[#333333] focus:outline-none"
+                        aria-label="Ocultar ou mostrar senha"
+                    >
+                        <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Link Esqueceu a Senha -->
+            <div class="flex justify-end text-xs pt-1">
+                <a href="#" onclick="showForgotMessage(event)" class="font-bold text-[#007a3f] hover:underline">
+                    Esqueceu a senha?
+                </a>
+            </div>
+
+            <!-- Botão Entrar -->
+            <button 
+                type="submit" 
+                id="submitBtn"
+                class="w-full py-4 px-4 bg-[#007a3f] hover:bg-[#005e30] text-white font-bold text-base rounded-xl transition-colors shadow-md shadow-[#007a3f]/20 flex items-center justify-center gap-2 mt-4"
+            >
+                <span id="btnText">Entrar</span>
+            </button>
+
+        </form>
+
+        <!-- Rodapé -->
+        <div class="mt-12 text-center">
+            <p class="text-xs text-gray-400">
+                © Sorriso Pleno Consultório Odontológico
+            </p>
+        </div>
+
+    </main>
+
+</body>
+</html>
